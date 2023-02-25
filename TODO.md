@@ -2,9 +2,17 @@
 
 ### - [x] Installs
 ### - [x] Create dB
-### - [] Setup store, provider, logger
-### - [] Create reducers
+### - [] Setup
+- [] Setup store, ~~provider~~, ~~logger~~
+    - [] Create reducers
+        - add to combined reducers!
+### - [x] Components
+- [x] basic structure, import
+### - [] Router
+    - import { HashRouter as Router, Route, Link } from 'react-router-dom';
+- [] Routes
 
+### - [] README.md
 
 ## Form View (4), Review
 - [] feeling
@@ -19,16 +27,20 @@
     - No Route, yes validation
 
 ## Components 
-- [] Header
-- [] SurveyForm views (4)
+- [x] Header
+- [x] SurveyForm views (4)
     - back and next buttons
-- [] Review
-    - submit button    
-- [] submission success page
+- [x] Review
+    - submit button  
+        - send survey to server
+        - save in dB 
+- [x] submission success page
     - route new survey button
-        - - reset all the data
-- [] admin page
+        - reset all the data
+- [x] admin page
 
 ## Input validation (3)
-    - not on comments
+ - not on comments
+
+
 
