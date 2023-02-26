@@ -2,28 +2,32 @@
 
 ### - [x] Installs
 ### - [x] Create dB
-### - [] Setup
+### - [] Setup imports index.js
+    - import { createStore, combineReducers, applyMiddleware } from 'redux';
+    - import { Provider } from 'react-redux';
+    - import logger from 'redux-logger';
 - [] Setup store, ~~provider~~, ~~logger~~
     - [] Create reducers
         - add to combined reducers!
 ### - [x] Components
 - [x] basic structure, import
-### - [] Router
+### - [x] Router
     - import { HashRouter as Router, Route, Link } from 'react-router-dom';
-- [] Routes
+### - [x] Routes
+    - import { useHistory } from 'react-router-dom';
 
 ### - [] README.md
 
-## Form View (4), Review
-- [] feeling
+# Form View (4), Review
+- [x] feeling
     - Route
-- [] understanding
+- [x] understanding
     - Route
-- [] support
+- [x] support
     - Route
-- [] comments
+- [x] comments
     - Route 
-- [] Review
+- [] review
     - No Route, yes validation
 
 ## Components 
