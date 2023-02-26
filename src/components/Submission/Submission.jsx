@@ -5,11 +5,12 @@ function Submission() {
   const history = useHistory();
 
   const handleClick = () => {
-      alert('');
+      // alert('');
       // change location
       history.push('/feeling');
       // history.goBack();
-    }
+  }
+  
   return (
     <>
       <h2>Thank you!</h2>

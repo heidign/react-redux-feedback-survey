@@ -8,12 +8,30 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const storeInstance = createStore(
-    combineReducers({
 
+// reducer for each form view
+const survey = (state = {}, action) => {
+  switch (action.type) {
+    case 'SET_FEELING':
+      return { ...state, feeling: action.payload };
+    case 'SET_UNDERSTANDING':
+      return { ...state, understanding: action.payload };
+    case 'SET_SUPPORT':
+      return { ...state, support: action.payload };
+    case 'SET_COMMENTS':
+      return { ...state, comments: action.payload };
+    }
+    return state
+};
+
+const storeInstance = createStore(
+
+    combineReducers({
+      survey
     }),
     applyMiddleware(logger)
 );
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
