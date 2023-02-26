@@ -1,9 +1,13 @@
-import './Review.css';
+import { useState } from "react";
 import { useHistory } from 'react-router-dom';
+// import { useSelector, useDispatch } from 'react-redux';
+
+import './Review.css';
 
 function Review() {
     const history = useHistory();
-
+    // const dispatch = useDispatch();
+    
   const handleClick = () => {
       alert('Thank you for your submission!');
       // change location

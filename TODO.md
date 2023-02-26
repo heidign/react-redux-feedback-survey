@@ -6,8 +6,8 @@
     - import { createStore, combineReducers, applyMiddleware } from 'redux';
     - import { Provider } from 'react-redux';
     - import logger from 'redux-logger';
-- [] Setup store, ~~provider~~, ~~logger~~
-    - [] Create reducers
+- [x] ~~Setup store, ~~provider~~, ~~logger~~
+    - [x] Create reducers
         - add to combined reducers!
 ### - [x] Components
 - [x] basic structure, import

@@ -1,20 +1,35 @@
-import './Comments.css';
+import { useState } from "react";
 import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import './Comments.css';
 
 function Comments() {
   const history = useHistory();
-  
+  const dispatch = useDispatch();
+  const [comments, setComments] = useState('');
+
   const handleClick = () => {
-    alert('');
-    // change location
-    history.push('/review');
-    // history.goBack();
-  }
+    if (comments && comments) {
+      dispatch({
+        type: 'SET_COMMENTS',
+        payload: comments
+      })
+      history.push('/review');
+      // history.goBack();
+    } else {
+      alert("Thank you! Please review your answers");
+    }
+  };
+
+  const handleChange = (e) => {
+    setComments(e.target.value);
+  };
+
   return (
   <>
       <h2>Any comments you'd like to leave?</h2>
-      <label>Comments</label>
-      <input type="number"></input>
+      <div><label>Comments?</label></div>
+      <input type="text" onChange={handleChange} placeholder="comments or concerns"></input>
       <button onClick={handleClick}>NEXT</button>
   </>
   )
