@@ -1,22 +1,27 @@
-import './Submission.css';
+
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from "react-redux";
+import './Submission.css';
 
 function Submission() {
   const history = useHistory();
+  const dispatch = useDispatch();
+
 
   const handleClick = () => {
-      // alert('');
-      // change location
-      history.push('/feeling');
-      // history.goBack();
-  }
-  
+      dispatch({
+        type: 'RESET_SURVEY'
+      })
+      // change location back to new survey
+      history.push('/');
+  };
+
   return (
     <>
-      <h2>Thank you!</h2>
+      <h2>Thank you! Your feedback has been submitted!</h2>
       <button onClick={handleClick}>Leave New Feedback</button>
     </>
-  )
+  );
 };
 
 export default Submission;

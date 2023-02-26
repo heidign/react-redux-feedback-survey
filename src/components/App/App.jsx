@@ -18,7 +18,7 @@ function App() {
     <Router>
     <div className='App'>
         <Header />
-        <Route exact path="/feeling">
+        <Route exact path="/">
           <Feeling/>
         </Route>
         
@@ -27,7 +27,7 @@ function App() {
         </Route>
 
         <Route exact path="/supported">
-         <Supported/> 
+          <Supported/> 
         </Route>
 
         <Route exact path="/comments">

@@ -20,7 +20,9 @@ const survey = (state = {}, action) => {
       return { ...state, support: action.payload };
     case 'SET_COMMENTS':
       return { ...state, comments: action.payload };
-    }
+    case "RESET_SURVEY":
+      return {};
+  }
     return state
 };
 
