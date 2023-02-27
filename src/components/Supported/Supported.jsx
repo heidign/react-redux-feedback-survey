@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import { Button, ButtonGroup, TextField, FormLabel } from "@mui/material";
 import "./Supported.css";
 
 function Supported() {
@@ -23,6 +24,7 @@ function Supported() {
         title: "Thank you!",
         text: "Keep going",
         confirmButtonText: "Ok",
+        confirmButtonColor: "#ab47bc"
       });
     } else {
       swal.fire({
@@ -40,15 +42,42 @@ function Supported() {
   const goBack = () => {
     history.goBack();
   };
+
+
+  const min = 0;
+  const max = 5;
+
   return (
     <>
-      <h2>On a scale of 1-5, how well are you being supported?</h2>
-      <div>
-        <label>Support?</label>
-      </div>
-      <input type="number" min="1" max="5" onChange={handleChange}></input>
-      <button onClick={goBack}>Back</button>
-      <button onClick={handleClick}>Next</button>
+      <FormLabel>On a scale of 1-5, how well are you being supported?</FormLabel>
+      <div></div>
+      <TextField
+        type="number"
+        style={{ width: 150 }}
+        sx={{ mt: 1 }}
+        helpText=" "
+        label="support"
+        variant="outlined"
+        size="small"
+        color="secondary"
+        inputProps={{
+          inputMode: "numeric",
+          min,
+          max,
+          pattern: "/^-?d+(?:.d+)?$/g",
+        }}
+        onChange={handleChange}
+      ></TextField>
+      <ButtonGroup
+        sx={{ m: 1.5, width: 150 }}
+        variant="outlined"
+        color="secondary"
+        size="small"
+        aria-label="outlined secondary button group"
+      >
+        <Button onClick={handleClick}>Next</Button>
+        <Button onClick={goBack}>Back</Button>
+      </ButtonGroup>
     </>
   );
 }
