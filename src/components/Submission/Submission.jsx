@@ -18,7 +18,7 @@ function Submission() {
 
   return (
     <>
-      <h2>Thank you! Your feedback has been submitted!</h2>
+      <h2>Success! Your feedback has been submitted!</h2>
       <button onClick={handleClick}>Leave New Feedback</button>
     </>
   );

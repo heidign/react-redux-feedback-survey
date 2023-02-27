@@ -2,7 +2,7 @@
 
 ### - [x] Installs
 ### - [x] Create dB
-### - [] Setup imports index.js
+### - [x] Setup imports index.js
     - import { createStore, combineReducers, applyMiddleware } from 'redux';
     - import { Provider } from 'react-redux';
     - import logger from 'redux-logger';
@@ -27,7 +27,7 @@
     - Route
 - [x] comments
     - Route 
-- [] review
+- [x] review
     - No Route, yes validation
 
 ## Components 
