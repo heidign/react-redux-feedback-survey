@@ -1,6 +1,7 @@
 
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from "react-redux";
+import { Button } from "@mui/material";
 import './Submission.css';
 
 function Submission() {
@@ -19,7 +20,12 @@ function Submission() {
   return (
     <>
       <h2>Success! Your feedback has been submitted!</h2>
-      <button onClick={handleClick}>Leave New Feedback</button>
+      <Button 
+          sx={{ m: 1.5 }}
+          variant="contained"
+          color="secondary"
+          size="small"
+          onClick={handleClick}>Leave New Feedback</Button>
     </>
   );
 };

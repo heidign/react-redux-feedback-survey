@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import {
   Table,
   TableHead,
@@ -10,25 +11,25 @@ import {
 import AdminItem from "./AdminItem/AdminItem";
 
 function Admin() {
-  const dispatch = useDispatch();
-  // const [surveys, setSurveys] = useState([]);
-  const surveys = useSelector(store => store.surveys);
 
-  useEffect(() => {
-    getSurveys();
-  }, []);
+  const [surveyList, setSurveyList] = useState([]);
+  const surveys = useSelector(store => store.surveys);
 
   //  getting surveys from database
   const getSurveys = () => {
     axios
       .get("/feedback")
       .then((response) => {
-        dispatch({ type: "SET_SURVEYS", payload: response.data });
+        setSurveyList(response.data);
       })
       .catch((err) => {
         console.error(err);
       });
   };
+
+  useEffect(() => {
+    getSurveys();
+  }, []);
 
   return (
     <>
@@ -44,8 +45,8 @@ function Admin() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {surveys.map((survey, i) => (
-              <AdminItem key={i} surveys={surveys} getSurveys={getSurveys} />
+            {surveyList.map(survey => (
+              <AdminItem survey={survey} getSurveys={getSurveys} />
             ))}
           </TableBody>
         </Table>

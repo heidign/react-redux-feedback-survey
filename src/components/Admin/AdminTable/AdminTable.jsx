@@ -1,4 +1,4 @@
-
+// outline
 function AdminTable({ surveys, getSurveys }) {
 
     return (

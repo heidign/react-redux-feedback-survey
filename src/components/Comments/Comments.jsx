@@ -24,6 +24,7 @@ function Comments() {
       title: "Thank you!",
       text: "Please review your responses",
       confirmButtonText: "Ok",
+      confirmButtonColor: "#ab47bc"
     });
   };
 
