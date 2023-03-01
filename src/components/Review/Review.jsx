@@ -38,41 +38,43 @@ function Review() {
     history.goBack();
   };
 
+  // maxWidth: 250 
+
+  // display: 'flex', flexWrap: 'wrap',
+  // , maxWidth: -250
   return (
     <>
       <h2>Please Review Your Feedback</h2>
+      <Paper elevation={5} sx={{ my: 1, mx: 'auto', maxWidth: 350, px: 1}}>
       <TableContainer>
-      <Paper elevation={5} sx={{ display: 'flex', flexWrap: 'wrap', my: 1, px: 1, maxWidth: -250}}>
+      
         <Table align="center"
           className="review-table"
-          sx={{ display: 'flex', flexWrap: 'wrap', mb: 2, px: 1, maxWidth: 250 }}
+          sx={{ my: 2, px: 1}}
           size="small"
         >
           <TableBody className="review-items">
             <TableRow>
-              <Cell></Cell>
-              <Cell></Cell>
-            </TableRow>
-            <TableRow>
               <Cell align="left">Feeling:</Cell>
-              <Cell align="left">{survey.feeling}</Cell>
+              <Cell align="right">{survey.feeling}</Cell>
             </TableRow>
             <TableRow>
               <Cell>Understanding:</Cell>
-              <Cell>{survey.understanding}</Cell>
+              <Cell align="right">{survey.understanding}</Cell>
             </TableRow>
             <TableRow>
               <Cell>Support:</Cell>
-              <Cell>{survey.support}</Cell>
+              <Cell align="right">{survey.support}</Cell>
             </TableRow>
             <TableRow>
               <Cell>Comments</Cell>
-              <Cell>{survey.comments}</Cell>
+              <Cell align="right">{survey.comments}</Cell>
             </TableRow>
           </TableBody>
           </Table>
-          </Paper>
+          
         </TableContainer>
+        </Paper>
 
       <ButtonGroup
         sx={{ m: 1.5}}

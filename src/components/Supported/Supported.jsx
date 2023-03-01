@@ -9,7 +9,8 @@ import "./Supported.css";
 function Supported() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [supported, setSupported] = useState(0);
+  const storedValue = useSelector(store => store.survey.supported);
+  const [supported, setSupported] = useState(storedValue);
   const swal = withReactContent(Swal);
 
   const handleClick = () => {
@@ -30,7 +31,7 @@ function Supported() {
       swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Oops! Must enter a rating.",
+        text: "Oops! Must enter a rating of 1-5.",
       });
     }
   };
@@ -44,7 +45,7 @@ function Supported() {
   };
 
 
-  const min = 0;
+  const min = 1;
   const max = 5;
 
   return (
@@ -56,6 +57,8 @@ function Supported() {
         style={{ width: 150 }}
         sx={{ mt: 1 }}
         helpText=" "
+        autoFocus
+        hiddenLabel
         label="support"
         variant="outlined"
         size="small"
@@ -73,7 +76,6 @@ function Supported() {
         variant="outlined"
         color="secondary"
         size="small"
-        aria-label="outlined secondary button group"
       >
         <Button onClick={handleClick}>Next</Button>
         <Button onClick={goBack}>Back</Button>

@@ -24,20 +24,9 @@ const survey = (state = {}, action) => {
   return state;
 };
 
-const surveys = (state = [], action) => {
-  switch (action.type) {
-    case "SET_SURVEYS":
-      return action.payload;
-    case "RESET_SURVEYS":
-      return [];
-  }
-  return state;
-};
-
 const storeInstance = createStore(
   combineReducers({
-    survey,
-    surveys,
+    survey
   }),
   applyMiddleware(logger)
 );

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { Button, ButtonGroup, TextField, FormLabel } from "@mui/material";
@@ -10,7 +10,8 @@ function Understanding() {
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const [understanding, setUnderstanding] = useState(0);
+  const storedValue = useSelector(store => store.survey.understanding);
+  const [understanding, setUnderstanding] = useState(storedValue);
   const swal = withReactContent(Swal);
 
   const handleClick = () => {
@@ -32,7 +33,7 @@ function Understanding() {
       swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Oops! Must enter a rating.",
+        text: "Oops! Must enter a rating of 1-5.",
       });
     }
   };
@@ -44,7 +45,7 @@ function Understanding() {
     history.push("/");
   };
 
-  const min = 0;
+  const min = 1;
   const max = 5;
 
   return (
@@ -58,6 +59,8 @@ function Understanding() {
         style={{ width: 150 }}
         sx={{ mt: 1 }}
         helpText=" "
+        autoFocus
+        hiddenLabel
         label="understanding"
         variant="outlined"
         size="small"
@@ -75,7 +78,6 @@ function Understanding() {
         variant="outlined"
         color="secondary"
         size="small"
-        aria-label="outlined secondary button group"
       >
         <Button onClick={handleClick}>Next</Button>
         <Button onClick={goBack}>Back</Button>

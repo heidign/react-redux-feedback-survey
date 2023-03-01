@@ -10,7 +10,8 @@ import "./Feeling.css";
 function Feeling() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [feeling, setFeeling] = useState(0);
+  const storedValue = useSelector(store => store.survey.feeling);
+  const [feeling, setFeeling] = useState(storedValue);
   const swal = withReactContent(Swal);
 
   const handleClick = () => {
@@ -20,7 +21,7 @@ function Feeling() {
         payload: feeling,
       });
       history.push("/understanding");
-      
+
       swal.fire({
         // icon: 'success',
         title: "Thank you!",
@@ -32,7 +33,7 @@ function Feeling() {
       swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Oops! Must enter a rating.",
+        text: "Oops! Must enter a rating of 1-5.",
       });
     }
   };
@@ -41,31 +42,35 @@ function Feeling() {
     setFeeling(e.target.value);
   };
 
-  const min = 0;
+  const min = 1;
   const max = 5;
 
   return (
     <>
       <div className="feeling-body">
         <FormLabel>On a scale of 1-5, how are you feeling today?</FormLabel>
-      <div></div>
-      <TextField
-        type="number"
-        style={{ width: 150 }}
-        sx={{ mt: 1 }}
-        helpText=" "
-        label="understanding"
-        variant="outlined"
-        size="small"
-        color="secondary"
-        inputProps={{
-          inputMode: "numeric",
-          min,
-          max,
-          pattern: "/^-?d+(?:.d+)?$/g",
-        }}
-        onChange={handleChange}
-      ></TextField>
+        <div></div>
+        <TextField
+          onChange={handleChange}
+          value={feeling}
+          type="number"
+          autoFocus
+          hiddenLabel
+          aria-label="feeling"
+          style={{ width: 150 }}
+          sx={{ mt: 1 }}
+          helpText=" "
+          label="feeling"
+          variant="outlined"
+          size="small"
+          color="secondary"
+          inputProps={{
+            inputMode: "numeric",
+            min,
+            max,
+            pattern: "/^-?d+(?:.d+)?$/g",
+          }}
+        ></TextField>
         <Button
           sx={{ m: 1.5 }}
           variant="outlined"

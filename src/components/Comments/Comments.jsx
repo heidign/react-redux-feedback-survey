@@ -9,7 +9,8 @@ import "./Comments.css";
 function Comments() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [comments, setComments] = useState("");
+  const storedValue = useSelector(store => store.survey.comments);
+  const [comments, setComments] = useState(storedValue);
   const swal = withReactContent(Swal);
 
   const handleClick = () => {
@@ -35,8 +36,6 @@ function Comments() {
   const goBack = () => {
     history.goBack();
   };
-  const min = 0;
-  const max = 5;
 
   return (
     <>
@@ -47,6 +46,8 @@ function Comments() {
         style={{ width: 300 }}
         sx={{ mt: 1 }}
         helpText=" "
+        autoFocus
+        hiddenLabel
         label="comments"
         variant="outlined"
         size="small"
@@ -62,7 +63,6 @@ function Comments() {
         variant="outlined"
         color="secondary"
         size="small"
-        aria-label="outlined secondary button group"
       >
         <Button onClick={handleClick}>Next</Button>
         <Button onClick={goBack}>Back</Button>

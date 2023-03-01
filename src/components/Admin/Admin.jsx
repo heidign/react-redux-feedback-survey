@@ -13,7 +13,6 @@ import AdminItem from "./AdminItem/AdminItem";
 function Admin() {
 
   const [surveyList, setSurveyList] = useState([]);
-  const surveys = useSelector(store => store.surveys);
 
   //  getting surveys from database
   const getSurveys = () => {
